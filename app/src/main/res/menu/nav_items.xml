@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_main"
+        android:title="@string/main"
+        android:icon="@drawable/ic_home"/>
+
+    <item android:id="@+id/action_roster"
+        android:title="@string/roster"
+        android:icon="@drawable/ic_roster"/>
+
+    <item android:id="@+id/action_events"
+        android:title="@string/events"
+        android:icon="@drawable/ic_events"/>
+
+    <item android:id="@+id/action_music"
+        android:title="@string/music"
+        android:icon="@drawable/ic_music"/>
+</menu>
