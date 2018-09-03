@@ -12,26 +12,40 @@ import app.avery.pipemajorhelperv2.Model.User;
 import app.avery.pipemajorhelperv2.R;
 import io.realm.Realm;
 import io.realm.RealmList;
+import io.realm.RealmResults;
 
 public class RosterActivity extends BaseActivity {
     private Realm realm;
     private RecyclerView rosterView;
     private RosterRecyclerViewAdapter adapter;
+    Band band;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        realm = Realm.getDefaultInstance();
-        final User user = realm.where(User.class).findFirst();
-        final Band band = user.getBand();
-        final RealmList<Member> rosterList = band.getRoster();
 
-        if(rosterList.size() > 0){
-            setUpRecyclerView(rosterList);
+        realm = Realm.getDefaultInstance();
+        band = realm.where(Band.class).findFirst();
+
+        if(band.getRoster().size() > 0){
+            setUpRecyclerView(band.getRoster());
         }
         else {
-
+            populateTestRoster(realm);
         }
+    }
+
+    private void populateTestRoster(Realm realm){
+        realm.executeTransaction(r -> {
+            for(int i = 0; i < 5; i++){
+                Member member = r.createObject(Member.class);
+                member.setName("Testy McTestface" + i);
+                member.setRank("Piper");
+                band.getRoster().add(member);
+            }
+        });
+        realm.close();
+        setUpRecyclerView(band.getRoster());
     }
 
     private void setUpRecyclerView(RealmList<Member> rosterList){

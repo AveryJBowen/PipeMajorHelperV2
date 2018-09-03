@@ -7,16 +7,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import app.avery.pipemajorhelperv2.Model.Band;
-import app.avery.pipemajorhelperv2.Model.Job;
-import app.avery.pipemajorhelperv2.Model.Member;
-import app.avery.pipemajorhelperv2.Model.MusicSet;
 import app.avery.pipemajorhelperv2.Model.User;
 import app.avery.pipemajorhelperv2.R;
 import io.realm.Realm;
-import io.realm.RealmList;
 
 public class MainActivity extends BaseActivity {
-    public static final String TAG = "Log: ";
     private Realm realm;
     private Intent starterIntent;
 
@@ -24,15 +19,15 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         starterIntent = getIntent();
-        realm = Realm.getDefaultInstance();
-        final User user = realm.where(User.class).findFirst();
 
-        if(user == null){
+        realm = Realm.getDefaultInstance();
+        final Band band = realm.where(Band.class).findFirst();
+
+        if(band == null){
             setContentView(R.layout.activity_main_view_get_user);
         }
         else{
-            String userName = user.getName();
-            Band band = user.getBand();
+            String userName = band.getUser().getName();
             String bandName = band.getName();
             TextView welcomeText = findViewById(R.id.welcomeText);
             welcomeText.setText("Welcome back, " + userName + "!\n" + bandName);
@@ -55,26 +50,16 @@ public class MainActivity extends BaseActivity {
         String newUserName = userName.getText().toString();
         String newBandName = bandName.getText().toString();
 
-        final User newUser = new User();
-        final Band newBand = new Band();
-        newUser.setName(newUserName);
-        newUser.setBand(newBand);
-        newBand.setName(newBandName);
-        newBand.setUser(newUser);
-        newUser.setBand(newBand);
-
-        realm.beginTransaction();
-        realm.copyToRealm(newUser);
-        realm.copyToRealm(newBand);
-        realm.commitTransaction();
+        realm.executeTransaction(r -> {
+            User newUser = r.createObject(User.class);
+            Band newBand = r.createObject(Band.class);
+            newUser.setName(newUserName);
+            newUser.setBand(newBand);
+            newBand.setName(newBandName);
+            newBand.setUser(newUser);
+        });
         realm.close();
-
         finish();
         startActivity(starterIntent);
-
-        //setContentView(R.layout.activity_main);
-        //TextView welcomeText = findViewById(R.id.welcomeText);
-        //welcomeText.setText("Welcome, " + newUser.getName() + "!\n" + newBand.getName());
     }
-
 }
