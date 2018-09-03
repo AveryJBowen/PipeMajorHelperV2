@@ -1,15 +1,12 @@
 package app.avery.pipemajorhelperv2;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import io.realm.Realm;
-import io.realm.RealmResults;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     public static final String TAG = "Log: ";
     private Realm realm;
 
@@ -26,10 +23,19 @@ public class MainActivity extends AppCompatActivity {
             String userName = user.getName();
             Band band = user.getBand();
             String bandName = band.getName();
-            setContentView(R.layout.activity_main);
             TextView welcomeText = findViewById(R.id.welcomeText);
             welcomeText.setText("Welcome back, " + userName + "!\n" + bandName);
         }
+    }
+
+    @Override
+    public int getContentViewId(){
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public int getNavigationMenuItemId(){
+        return R.id.action_main;
     }
 
     public void onStartClick(View v){

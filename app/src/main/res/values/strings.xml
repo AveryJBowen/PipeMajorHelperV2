@@ -9,4 +9,7 @@
     <string name="main">Main</string>
     <string name="start">Start</string>
     <string name="pmh_logo">PMH Logo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
