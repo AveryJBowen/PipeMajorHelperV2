@@ -1,6 +1,6 @@
-package app.avery.pipemajorhelperv2;
+package app.avery.pipemajorhelperv2.UI;
 
-import android.os.Bundle;
+import app.avery.pipemajorhelperv2.R;
 
 public class MusicActivity extends BaseActivity {
 

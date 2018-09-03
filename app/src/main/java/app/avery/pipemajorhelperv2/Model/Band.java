@@ -1,29 +1,14 @@
-package app.avery.pipemajorhelperv2;
+package app.avery.pipemajorhelperv2.Model;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
 public class Band extends RealmObject {
-    private String id;
     private String name;
     private User user;
     private RealmList<Member> roster;
     private RealmList<MusicSet> sets;
     private RealmList<Job> jobs;
-
-    public Band(String id, String name, User user) {
-        this.id = id;
-        this.name = name;
-        this.user = user;
-    }
-
-    public Band(){
-
-    }
-
-    public String getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -43,6 +28,14 @@ public class Band extends RealmObject {
 
     public RealmList<Member> getRoster() {
         return roster;
+    }
+
+    public void addMemberToRoster(Member member){
+        roster.add(member);
+    }
+
+    public void removeMemberFromRoster(Member member){
+        roster.remove(member);
     }
 
     public void setRoster(RealmList<Member> roster) {

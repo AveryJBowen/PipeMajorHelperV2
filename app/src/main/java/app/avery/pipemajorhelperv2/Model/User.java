@@ -1,18 +1,10 @@
-package app.avery.pipemajorhelperv2;
+package app.avery.pipemajorhelperv2.Model;
 
 import io.realm.RealmObject;
 
 public class User extends RealmObject {
     private String name;
     private Band band;
-
-    public User(){
-
-    }
-
-    public User(String name){
-        this.name = name;
-    }
 
     public Band getBand() {
         return band;

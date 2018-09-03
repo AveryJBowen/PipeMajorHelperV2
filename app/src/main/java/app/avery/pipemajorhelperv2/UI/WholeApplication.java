@@ -1,4 +1,4 @@
-package app.avery.pipemajorhelperv2;
+package app.avery.pipemajorhelperv2.UI;
 
 import android.app.Application;
 

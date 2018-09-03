@@ -1,4 +1,4 @@
-package app.avery.pipemajorhelperv2;
+package app.avery.pipemajorhelperv2.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import app.avery.pipemajorhelperv2.R;
 
 public abstract class BaseActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener{
     protected BottomNavigationView navigation;
