@@ -12,9 +12,11 @@ import io.realm.OrderedRealmCollection;
 import io.realm.RealmRecyclerViewAdapter;
 
 public class RosterRecyclerViewAdapter extends RealmRecyclerViewAdapter<Member, RosterRecyclerViewAdapter.ViewHolder> {
+    //private OnRosterItemClick callback;
 
     RosterRecyclerViewAdapter(OrderedRealmCollection<Member> data){
         super(data, true);
+        //this.callback = listener;
     }
 
     @Override
@@ -34,7 +36,7 @@ public class RosterRecyclerViewAdapter extends RealmRecyclerViewAdapter<Member, 
         TextView memberName;
         TextView memberRank;
 
-        ViewHolder(View view){
+        public ViewHolder(View view){
             super(view);
             memberName = view.findViewById(R.id.memberNameItem);
             memberRank = view.findViewById(R.id.memberRankItem);
