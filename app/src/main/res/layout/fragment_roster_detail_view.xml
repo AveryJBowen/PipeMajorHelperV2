@@ -10,6 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/instrumentImage"
+            android:layout_width="130dp"
+            android:layout_height="131dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteY="0dp" />
+
         <TextView
             android:id="@+id/rosterDetailName"
             android:layout_width="wrap_content"
@@ -23,8 +34,11 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/instrumentImage"/>
+
 
     </android.support.constraint.ConstraintLayout>
+
+
 
 </FrameLayout>

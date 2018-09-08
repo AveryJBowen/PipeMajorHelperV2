@@ -7,6 +7,8 @@ import app.avery.pipemajorhelperv2.Model.Member;
 import app.avery.pipemajorhelperv2.R;
 import android.support.v4.app.FragmentTransaction;
 
+import java.io.Serializable;
+
 public class RosterActivity extends BaseActivity {
 
 
@@ -37,6 +39,7 @@ public class RosterActivity extends BaseActivity {
     public void showMemberDetail(Member member){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragmentLayoutPlaceholder, new RosterDetailViewFragment());
+        getIntent().putExtra("MemberToDetail", member.getName());
         fragmentTransaction.commit();
     }
 }

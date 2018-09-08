@@ -33,10 +33,9 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="imageAsset" value="C:\Users\Avery\Downloads\for-pmh\png\007-target.png" />
-                                      <entry key="outputName" value="ic_delete" />
-                                      <entry key="theme" value="CUSTOM" />
-                                      <entry key="themeColor" value="000000" />
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="C:\Users\Avery\Desktop\001-badge.png" />
+                                      <entry key="outputName" value="ic_star" />
                                     </map>
                                   </option>
                                 </PersistentState>
