@@ -73,10 +73,35 @@ public class RosterListViewFragment extends Fragment {
     //TODO: Delete tester method:
     private void populateTestRoster(View view, Realm realm){
         realm.executeTransaction(r -> {
-            for(int i = 0; i < 5; i++){
+            for(int i = 0; i < 15; i++){
                 Member member = r.createObject(Member.class);
                 member.setName("Testy McTestface" + i);
-                member.setRank("Piper");
+                if(i % 2 == 0){
+                    if(i == 2){
+                        member.setRank("Pipe Major");
+                    }
+                    if(i == 4){
+                        member.setRank("Pipe Sergeant");
+                    }
+                    else{
+                        member.setRank("Piper");
+                    }
+                }
+                else{
+                    if(i == 1){
+                        member.setRank("Drum Major");
+                    }
+                    else{
+                        member.setRank("Drummer");
+                    }
+                }
+                member.setCity("Baltimore");
+                member.setEmail("test@test.com");
+                member.setPhone("717-681-7070");
+                member.setStreetAddress("1414 Key Highway");
+                member.setState("MD");
+                member.setZipcode("21230");
+                member.setYearJoined(2001);
                 band.getRoster().add(member);
             }
         });
@@ -96,7 +121,6 @@ public class RosterListViewFragment extends Fragment {
         @Override
         public void onSwiped(final RecyclerView.ViewHolder viewHolder, int direction){
             String name = adapter.getItem(viewHolder.getAdapterPosition()).getName();
-            //Toast.makeText(getApplicationContext(), "Swiped: " + name, Toast.LENGTH_SHORT).show();
             realm.beginTransaction();
             member = realm.where(Member.class).equalTo("name", name).findFirst();
             realm.commitTransaction();

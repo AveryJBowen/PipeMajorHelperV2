@@ -2,15 +2,14 @@ package app.avery.pipemajorhelperv2.UI;
 
 import android.os.Bundle;
 import android.view.View;
-
 import app.avery.pipemajorhelperv2.Model.Member;
 import app.avery.pipemajorhelperv2.R;
+import io.realm.Realm;
 import android.support.v4.app.FragmentTransaction;
 
-import java.io.Serializable;
+import static java.lang.Integer.parseInt;
 
-public class RosterActivity extends BaseActivity {
-
+public class RosterActivity extends BaseActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
