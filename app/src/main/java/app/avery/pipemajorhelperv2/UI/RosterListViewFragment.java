@@ -10,6 +10,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import app.avery.pipemajorhelperv2.Model.Band;
@@ -38,6 +39,8 @@ public class RosterListViewFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
+        ImageButton addMemberButton = view.findViewById(R.id.addMemberButton);
+        addMemberButton.setBackgroundResource(R.drawable.ic_member_add);
         TextView bandNameRoster = view.findViewById(R.id.bandNameRoster);
         realm = Realm.getDefaultInstance();
         band = realm.where(Band.class).findFirst();

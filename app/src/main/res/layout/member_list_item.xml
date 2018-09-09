@@ -14,7 +14,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/memberNameItem"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/memberNameItem"
+
         app:srcCompat="@drawable/ic_member" />
 
     <TextView
@@ -25,8 +25,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:textColor="@android:color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/memberRankItem"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/memberIconItem"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,8 +36,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="16dp"
         android:textColor="@android:color/black"
-        android:textSize="20sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/memberNameItem"/>
 
 </android.support.constraint.ConstraintLayout>

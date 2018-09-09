@@ -3,4 +3,5 @@
     <color name="colorPrimary">#dedede</color>
     <color name="colorAccent">#edbe00</color>
     <color name="accent_material_light">#ffbf00</color>
+    <color name="white">#dedede</color>
 </resources>
