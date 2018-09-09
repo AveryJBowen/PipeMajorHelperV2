@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import app.avery.pipemajorhelperv2.Model.Band;
 import app.avery.pipemajorhelperv2.Model.Member;
 import app.avery.pipemajorhelperv2.R;
 import io.realm.Realm;
@@ -17,6 +19,7 @@ import static java.lang.Integer.parseInt;
 public class RosterDetailViewFragment extends Fragment implements View.OnClickListener{
     private Realm realm;
     Member member;
+    Band band;
     EditText rosterDetailName;
     ImageView instrumentImage;
     ImageView rankImage;
@@ -58,9 +61,11 @@ public class RosterDetailViewFragment extends Fragment implements View.OnClickLi
         deleteButton.setOnClickListener(this);
 
         String name = (getActivity().getIntent().getStringExtra("MemberToDetail"));
+        realm = Realm.getDefaultInstance();
+        band = realm.where(Band.class).findFirst();
+
         if(!name.equals("New Member")){
             editButton.setBackgroundResource(R.drawable.ic_edit);
-            realm = Realm.getDefaultInstance();
             member = realm.where(Member.class).equalTo("name", name).findFirst();
             rosterDetailName.setText(member.getName());
             String rank = member.getRank();
@@ -125,7 +130,7 @@ public class RosterDetailViewFragment extends Fragment implements View.OnClickLi
         }
     }
 
-    public void saveEditedMember(){
+    public void saveMember(){
         String zip = profileZip.getText().toString();
         String address = profileAddress.getText().toString();
         String state = profileState.getText().toString();
@@ -139,17 +144,34 @@ public class RosterDetailViewFragment extends Fragment implements View.OnClickLi
 
         Realm realm = Realm.getDefaultInstance();
         final Member memberToUpdate = realm.where(Member.class).equalTo("name", name).findFirst();
-
-        realm.executeTransaction(r -> {
-            memberToUpdate.setYearJoined(year);
-            memberToUpdate.setZipcode(zip);
-            memberToUpdate.setState(state);
-            memberToUpdate.setStreetAddress(address);
-            memberToUpdate.setPhone(phone);
-            memberToUpdate.setEmail(email);
-            memberToUpdate.setRank(rank);
-            memberToUpdate.setCity(city);
-        });
+        if(memberToUpdate == null){
+            realm.executeTransaction(r -> {
+                Member memberToAdd = r.createObject(Member.class);
+                memberToAdd.setName(name);
+                memberToAdd.setYearJoined(year);
+                memberToAdd.setZipcode(zip);
+                memberToAdd.setState(state);
+                memberToAdd.setStreetAddress(address);
+                memberToAdd.setPhone(phone);
+                memberToAdd.setEmail(email);
+                memberToAdd.setRank(rank);
+                memberToAdd.setCity(city);
+                band.getRoster().add(memberToAdd);
+            });
+        }
+        else{
+            realm.executeTransaction(r -> {
+                memberToUpdate.setName(name);
+                memberToUpdate.setYearJoined(year);
+                memberToUpdate.setZipcode(zip);
+                memberToUpdate.setState(state);
+                memberToUpdate.setStreetAddress(address);
+                memberToUpdate.setPhone(phone);
+                memberToUpdate.setEmail(email);
+                memberToUpdate.setRank(rank);
+                memberToUpdate.setCity(city);
+            });
+        }
     }
 
     public void deleteMember(){
@@ -166,12 +188,14 @@ public class RosterDetailViewFragment extends Fragment implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.editButton:
-                saveEditedMember();
+                saveMember();
+                getActivity().recreate();
                 break;
             case R.id.deleteButton:
                 deleteMember();
+                ((RosterActivity)getActivity()).showListView();
                 break;
         }
-        ((RosterActivity)getActivity()).showListView();
+
     }
 }
