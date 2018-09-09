@@ -9,4 +9,18 @@
     <string name="main">Main</string>
     <string name="start">Start</string>
     <string name="pmh_logo">PMH Logo</string>
+    <string name="year_joined">Year Joined:</string>
+
+    <string-array name="ranks">
+        <item>Pipe Major</item>
+        <item>Drum Major</item>
+        <item>Pipe Sergeant</item>
+        <item>Pipe Corporal</item>
+        <item>Drum Corporal</item>
+        <item>Pipe Lance Corporal</item>
+        <item>Drum Lance Corporal</item>
+        <item>Piper</item>
+        <item>Drummer</item>
+    </string-array>
+
 </resources>
