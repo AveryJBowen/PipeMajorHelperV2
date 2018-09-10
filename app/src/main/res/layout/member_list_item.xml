@@ -14,7 +14,6 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/memberNameItem"
         app:layout_constraintStart_toStartOf="parent"
-
         app:srcCompat="@drawable/ic_member" />
 
     <TextView

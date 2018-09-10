@@ -30,14 +30,6 @@ public class Band extends RealmObject {
         return roster;
     }
 
-    public void addMemberToRoster(Member member){
-        roster.add(member);
-    }
-
-    public void removeMemberFromRoster(Member member){
-        roster.remove(member);
-    }
-
     public void setRoster(RealmList<Member> roster) {
         this.roster = roster;
     }

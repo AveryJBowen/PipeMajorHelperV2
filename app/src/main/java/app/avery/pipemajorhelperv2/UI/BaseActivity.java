@@ -51,6 +51,19 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         }
     }
 
+    public void onMainImageSelected(int selection){
+        if(selection == R.id.action_events){
+            startActivity(new Intent(this, EventActivity.class));
+        }
+        else if(selection == R.id.action_music){
+            startActivity(new Intent(this, MusicActivity.class));
+        }
+        else if(selection == R.id.action_roster){
+            startActivity(new Intent(this, RosterActivity.class));
+        }
+        finish();
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull final MenuItem item) {
         navigation.postDelayed(() -> {

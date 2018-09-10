@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".UI.MusicActivity">
 
+    <FrameLayout
+        android:id="@+id/musicFragmentPlaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintTop_toTopOf="parent"></FrameLayout>
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"

@@ -2,8 +2,11 @@ package app.avery.pipemajorhelperv2.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import app.avery.pipemajorhelperv2.Model.Band;
@@ -18,6 +21,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         starterIntent = getIntent();
 
         realm = Realm.getDefaultInstance();
@@ -27,11 +31,29 @@ public class MainActivity extends BaseActivity {
             setContentView(R.layout.activity_main_view_get_user);
         }
         else{
+            ImageButton rosterImageMain = findViewById(R.id.rosterImageMain);
+            rosterImageMain.setBackgroundResource(R.drawable.ic_roster);
+            ImageButton musicImageMain = findViewById(R.id.musicImageMain);
+            musicImageMain.setBackgroundResource(R.drawable.ic_music_main);
+            ImageButton eventsImageMain = findViewById(R.id.eventsImageMain);
+            eventsImageMain.setBackgroundResource(R.drawable.ic_events);
             String userName = band.getUser().getName();
             String bandName = band.getName();
             TextView welcomeText = findViewById(R.id.welcomeText);
             welcomeText.setText("Welcome back, " + userName + "!\n" + bandName);
         }
+    }
+
+    public void rosterSelected(View view){
+        onMainImageSelected(R.id.action_roster);
+    }
+
+    public void eventsSelected(View view){
+        onMainImageSelected(R.id.action_events);
+    }
+
+    public void musicSelected(View view){
+        onMainImageSelected(R.id.action_music);
     }
 
     @Override

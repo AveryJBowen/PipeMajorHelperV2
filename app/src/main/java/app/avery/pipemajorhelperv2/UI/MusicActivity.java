@@ -1,6 +1,8 @@
 package app.avery.pipemajorhelperv2.UI;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import app.avery.pipemajorhelperv2.R;
 
@@ -19,4 +21,6 @@ public class MusicActivity extends BaseActivity {
     public int getNavigationMenuItemId(){
         return R.id.action_music;
     }
+
+
 }

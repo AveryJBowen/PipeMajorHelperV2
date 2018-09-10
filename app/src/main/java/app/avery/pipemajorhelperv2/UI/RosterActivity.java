@@ -14,7 +14,7 @@ public class RosterActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentLayoutPlaceholder, new RosterListViewFragment());
+        fragmentTransaction.replace(R.id.rosterFragmentLayoutPlaceholder, new RosterListViewFragment());
         fragmentTransaction.commit();
     }
 
@@ -31,21 +31,21 @@ public class RosterActivity extends BaseActivity{
     //METHODS
     public void addMemberClick(View view){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentLayoutPlaceholder, new RosterDetailViewFragment());
+        fragmentTransaction.replace(R.id.rosterFragmentLayoutPlaceholder, new RosterDetailViewFragment());
         getIntent().putExtra("MemberToDetail", "New Member");
         fragmentTransaction.commit();
     }
 
     public void showMemberDetail(Member member){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentLayoutPlaceholder, new RosterDetailViewFragment());
+        fragmentTransaction.replace(R.id.rosterFragmentLayoutPlaceholder, new RosterDetailViewFragment());
         getIntent().putExtra("MemberToDetail", member.getName());
         fragmentTransaction.commit();
     }
 
     public void showListView(){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentLayoutPlaceholder, new RosterListViewFragment());
+        fragmentTransaction.replace(R.id.rosterFragmentLayoutPlaceholder, new RosterListViewFragment());
         fragmentTransaction.commit();
     }
 }

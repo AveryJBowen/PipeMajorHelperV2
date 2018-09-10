@@ -180,6 +180,7 @@ public class RosterDetailViewFragment extends Fragment implements View.OnClickLi
 
         final Member memberToDelete = realm.where(Member.class).equalTo("name", name).findFirst();
         realm.executeTransaction(r -> {
+            band.getRoster().remove(memberToDelete);
             memberToDelete.deleteFromRealm();
         });
     }

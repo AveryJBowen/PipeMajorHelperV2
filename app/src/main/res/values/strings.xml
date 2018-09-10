@@ -23,4 +23,10 @@
         <item>Drummer</item>
     </string-array>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_manage_your_music"><![CDATA[View & manage your music]]></string>
+    <string name="view_manage_your_events"><![CDATA[View & manage your events]]></string>
+    <string name="view_manage_your_roster"><![CDATA[View & manage your roster]]></string>
+
 </resources>
