@@ -23,11 +23,4 @@ public class MusicSet extends RealmObject {
         return tuneList;
     }
 
-    public void addTune(Tune tune){
-        tuneList.add(tune);
-    }
-
-    public void removeTune(Tune tune){
-        tuneList.remove(tune);
-    }
 }

@@ -67,5 +67,16 @@
             </ScrollView>
         </LinearLayout>
 
+        <ImageButton
+            android:id="@+id/addSetButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@color/white"
+            android:layout_marginBottom="20dp"
+            android:onClick="addSetClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>
