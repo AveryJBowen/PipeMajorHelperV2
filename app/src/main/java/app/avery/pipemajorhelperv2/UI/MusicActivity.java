@@ -12,7 +12,6 @@ public class MusicActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.musicFragmentPlaceholder, new MusicListViewFragment());
         fragmentTransaction.commit();
@@ -30,14 +29,23 @@ public class MusicActivity extends BaseActivity {
 
     //METHODS
     public void addSetClick(View view){
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.musicFragmentPlaceholder, new SetDetailViewFragment());
-        getIntent().putExtra("SetToDetail", "New Set");
-        fragmentTransaction.commit();
+        //FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        //fragmentTransaction.replace(R.id.musicFragmentPlaceholder, new SetDetailViewFragment());
+        //getIntent().putExtra("SetToDetail", "New Set");
+        //fragmentTransaction.commit();
     }
 
     public void showSetDetail(MusicSet set){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.musicFragmentPlaceholder, new SetDetailViewFragment());
+        getIntent().putExtra("SetToDetail", set.getName());
+        fragmentTransaction.commit();
+    }
 
+    public void showListView(){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.musicFragmentPlaceholder, new MusicListViewFragment());
+        fragmentTransaction.commit();
     }
 
 

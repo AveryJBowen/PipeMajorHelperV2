@@ -28,5 +28,6 @@
     <string name="view_manage_your_music"><![CDATA[View & manage your music]]></string>
     <string name="view_manage_your_events"><![CDATA[View & manage your events]]></string>
     <string name="view_manage_your_roster"><![CDATA[View & manage your roster]]></string>
+    <string name="set_tune_list">SET TUNE LIST</string>
 
 </resources>
