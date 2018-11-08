@@ -29,5 +29,7 @@
     <string name="view_manage_your_events"><![CDATA[View & manage your events]]></string>
     <string name="view_manage_your_roster"><![CDATA[View & manage your roster]]></string>
     <string name="set_tune_list">SET TUNE LIST</string>
+    <string name="enter_new_set_name">Enter New Set Name</string>
+    <string name="select_tunes_below">Select tunes below:</string>
 
 </resources>

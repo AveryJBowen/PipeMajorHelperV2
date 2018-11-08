@@ -9,6 +9,7 @@ public class Band extends RealmObject {
     private RealmList<Member> roster;
     private RealmList<MusicSet> sets;
     private RealmList<Job> jobs;
+    private RealmList<Tune> library;
 
     public String getName() {
         return name;
@@ -48,5 +49,9 @@ public class Band extends RealmObject {
 
     public void setJobs(RealmList<Job> jobs) {
         this.jobs = jobs;
+    }
+
+    public RealmList<Tune> getLibrary(){
+        return library;
     }
 }
